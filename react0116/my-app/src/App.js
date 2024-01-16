@@ -5,6 +5,7 @@ import {Routes,Route,Link} from 'react-router-dom';
 import Counter from './pages/Counter.js';
 import Input from './pages/Input.js';
 import Input2 from './pages/Input2.js';
+import UserList from './pages/List.js';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Link to="/counter">Counter</Link>|
         <Link to="/input">Input</Link>|
         <Link to="/input2">Input2</Link>|
+        <Link to="/list">List</Link>|
       </nav>
       <Routes>   {/* Router -> 매핑  Routes안에 Route로 세팅  Routes가 Link와 매핑되며 페이지 변경*/}
         <Route path='/' element={<Home />} />    {/* to와 path 동기화  */}
@@ -22,6 +24,7 @@ function App() {
         <Route path='/counter' element={<Counter />} />
         <Route path='/input' element={<Input />} />
         <Route path='/input2' element={<Input2 />} />
+        <Route path='/list' element={<UserList />} />
       </Routes>
       
     </div>
