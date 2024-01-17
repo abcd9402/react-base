@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';      
+import Modal from './page/Modal';
+
 function App() {
 
   let post = '강남 우동 맛집';
@@ -24,16 +26,23 @@ function App() {
       <div className="black-nav">  {/*class는 jsx에서 calssName으로 선언*/}
         <h4 id={post}  style={{color:'red', fontSize:'16px' }} >블로그임</h4>  {/* style입력시 {}안에 오브젝트형식으로 작성 '-'기호는 불가 -> 카멜형식 */}
       </div>
+      <button onClick={()=>{
+        let copy = [...글제목];
+        copy.sort();
+        글제목수정(copy);
+      }}>가나다순정렬</button>
+
+
       <div className="list">
         <h4>{글제목[0]} <span onClick={goodUp}>👍</span > {따봉} </h4>  {/* 변수의 데이터를 jsx에 입력시 {}안에 사용   ->  데이터 바인딩  */}
                                     {/* onClick={함수}로 이벤트 작성  */}
         <button onClick={()=>{
           //글제목수정(['여자 코트 추천','강남 우동 맛집','파이썬독학']);
           let copy =[...글제목];     //배열같은 경우 완전복사(...)을 이용하여 복사 후 변경 -> 일반복사 시 ram의 위치가 일치하여 인식 x
-          copy[0] = ' 여자 코트 추천'
+          copy[0] = '여자 코트 추천'
           글제목수정(copy);
         }}>제목 변경</button>
-        <p>2월 17일 발행</p>
+        <p>2월 1일 발행</p>
       </div>
       <div className="list">
       <h4>{글제목[1]}</h4> 
@@ -43,6 +52,7 @@ function App() {
         <h4>{글제목[2]}</h4> 
         <p>2월 17일 발행</p>
       </div>
+      <Modal />
     </div>
   );
 }
